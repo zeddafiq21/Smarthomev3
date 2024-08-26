@@ -14,11 +14,11 @@ const firebaseConfig = {
  
 $(document).ready(function(){
 	var database = firebase.database();
-	var Lampu;
+	var Lampu1;
 
 	database.ref().on("value", function(snap){
-		Lampu = snap.val().Lampu;
-		if(Lampu == 1){
+		Lampu1 = snap.val().Lampu1;
+		if(Lampu1 == 1){
 			document.getElementById("a").checked = true;  
 
 		} else{
@@ -27,25 +27,25 @@ $(document).ready(function(){
 	});
 
 	$("#a").click(function(){
-		var firebaseRef = firebase.database().ref().child("Lampu");
+		var firebaseRef = firebase.database().ref().child("Lampu1");
 
-		if(Lampu == 1){
+		if(Lampu1 == 1){
 			firebaseRef.set(0);
-			Lampu = 0;
+			Lampu1 = 0;
 		} else {
 			firebaseRef.set(1);
-			Lampu = 1;
+			Lampu1 = 1;
 		}
 	})
 });
 
 $(document).ready(function(){
 	var database = firebase.database();
-	var Televisi;
+	var Lampu2;
 
 	database.ref().on("value", function(snap){
-		Televisi = snap.val().Televisi;
-		if(Televisi == 1){
+		Lampu2 = snap.val().Lampu2;
+		if(Lampu2 == 1){
 			document.getElementById("b").checked = true;  
 
 		} else{
@@ -54,25 +54,25 @@ $(document).ready(function(){
 	});
 
 	$("#b").click(function(){
-		var firebaseRef = firebase.database().ref().child("Televisi");
+		var firebaseRef = firebase.database().ref().child("Lampu2");
 
-		if(Televisi == 1){
+		if(Lampu2 == 1){
 			firebaseRef.set(0);
-			Televisi = 0;
+			Lampu2 = 0;
 		} else {
 			firebaseRef.set(1);
-			Televisi = 1;
+			Lampu2 = 1;
 		}
 	})
 });
 
 $(document).ready(function(){
 	var database = firebase.database();
-	var ac;
+	var Lampu3;
 
 	database.ref().on("value", function(snap){
-		ac = snap.val().ac;
-		if(ac == 1){
+		Lampu3 = snap.val().Lampu3;
+		if(Lampu3 == 1){
 			document.getElementById("c").checked = true;  
 
 		} else{
@@ -81,25 +81,25 @@ $(document).ready(function(){
 	});
 
 	$("#c").click(function(){
-		var firebaseRef = firebase.database().ref().child("ac");
+		var firebaseRef = firebase.database().ref().child("Lampu3");
 
-		if(ac == 1){
+		if(Lampu3 == 1){
 			firebaseRef.set(0);
-			ac = 0;
+			Lampu3 = 0;
 		} else {
 			firebaseRef.set(1);
-			ac = 1;
+			Lampu3 = 1;
 		}
 	})
 });
 
 $(document).ready(function(){
 	var database = firebase.database();
-	var Kulkas;
+	var Lampu4;
 
 	database.ref().on("value", function(snap){
-		Kulkas = snap.val().Kulkas;
-		if(Kulkas == 1){
+		Lampu4 = snap.val().Lampu4;
+		if(Lampu4 == 1){
 			document.getElementById("d").checked = true;  
 
 		} else{
@@ -108,14 +108,14 @@ $(document).ready(function(){
 	});
 
 	$("#d").click(function(){
-		var firebaseRef = firebase.database().ref().child("Kulkas");
+		var firebaseRef = firebase.database().ref().child("Lampu4");
 
-		if(Kulkas == 1){
+		if(Lampu4 == 1){
 			firebaseRef.set(0);
-			Kulkas = 0;
+			Lampu4 = 0;
 		} else {
 			firebaseRef.set(1);
-			Kulkas = 1;
+			Lampu4 = 1;
 		}
 	})
 });
