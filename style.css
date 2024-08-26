@@ -386,13 +386,13 @@ main .recent-orders a{
 }
 
 .right-section{
-    margin-top: 2rem;
+    margin-top: 1.4rem;
 }
 
 .right-section .nav{
     display: flex;
     justify-content: end;
-    gap: 10px;
+    gap: 2rem;
 }
 
 .right-section .nav button{
