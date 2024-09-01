@@ -120,110 +120,247 @@ $(document).ready(function(){
 	})
 });
  
+$(document).ready(function(){
+	var database = firebase.database();
+	var Lampu5;
+
+	database.ref().on("value", function(snap){
+		Lampu5 = snap.val().Lampu5;
+		if(Lampu5 == 1){
+			document.getElementById("e").checked = true;  
+
+		} else{
+			document.getElementById("e").checked = false;
+		}
+	});
+
+	$("#e").click(function(){
+		var firebaseRef = firebase.database().ref().child("Lampu5");
+
+		if(Lampu5 == 1){
+			firebaseRef.set(0);
+			Lampu5 = 0;
+		} else {
+			firebaseRef.set(1);
+			Lampu5 = 1;
+		}
+	})
+});
+
+
+$(document).ready(function(){
+	var database = firebase.database();
+	var Lamp6;
+
+	database.ref().on("value", function(snap){
+		Lampu6 = snap.val().Lampu6;
+		if(Lampu6 == 1){
+			document.getElementById("f").checked = true;  
+
+		} else{
+			document.getElementById("f").checked = false;
+		}
+	});
+
+	$("#f").click(function(){
+		var firebaseRef = firebase.database().ref().child("Lampu6");
+
+		if(Lampu6 == 1){
+			firebaseRef.set(0);
+			Lampu6 = 0;
+		} else {
+			firebaseRef.set(1);
+			Lampu6 = 1;
+		}
+	})
+});
+
+$(document).ready(function(){
+	var database = firebase.database();
+	var Lampu7;
+
+	database.ref().on("value", function(snap){
+		Lampu7 = snap.val().Lampu7;
+		if(Lampu7 == 1){
+			document.getElementById("g").checked = true;  
+
+		} else{
+			document.getElementById("g").checked = false;
+		}
+	});
+
+	$("#g").click(function(){
+		var firebaseRef = firebase.database().ref().child("Lampu7");
+
+		if(Lampu7 == 1){
+			firebaseRef.set(0);
+			Lampu7 = 0;
+		} else {
+			firebaseRef.set(1);
+			Lampu7 = 1;
+		}
+	})
+});
+$(document).ready(function(){
+	var database = firebase.database();
+	var Lampu8;
+
+	database.ref().on("value", function(snap){
+		Lampu8 = snap.val().Lampu8;
+		if(Lampu8 == 1){
+			document.getElementById("h").checked = true;  
+
+		} else{
+			document.getElementById("h").checked = false;
+		}
+	});
+
+	$("#h").click(function(){
+		var firebaseRef = firebase.database().ref().child("Lampu8");
+
+		if(Lampu8 == 1){
+			firebaseRef.set(0);
+			Lampu8 = 0;
+		} else {
+			firebaseRef.set(1);
+			Lampu8 = 1;
+		}
+	})
+});
+
+
 var database = firebase.database();
-var dataRef1 = database.ref('teganganvac');
-var dataRef2 = database.ref('arusvac');
-var dataRef3 = database.ref('dayavac');
-var dataRef4 = database.ref('powerfactorac');
-var dataRef5 = database.ref('energiac');
-var dataRef6 = database.ref('frekuensiac');
-var dataRef7 = database.ref('kwhmeter');
-var dataRef8 = database.ref('teganganpv');
-var dataRef9 = database.ref('teganganbaterai');
-var dataRef10 = database.ref('aruspv');
-var dataRef11 = database.ref('arusbaterai');
-var dataRef12 = database.ref('dayapv');
-var dataRef13 = database.ref('dayabaterai');
-var dataRef14 = database.ref('energipv');
-var dataRef15 = database.ref('energibaterai');
+var dataRef1 = database.ref('Tegangan/PV');
+var dataRef2 = database.ref('Arus/PV');
+var dataRef3 = database.ref('Daya/PV');
+var dataRef4 = database.ref('Tegangan/Baterai');
+var dataRef5 = database.ref('Arus/Baterai');
+var dataRef6 = database.ref('Daya/Baterai');
+var dataRef7 = database.ref('Tegangan/Beban');
+var dataRef8 = database.ref('Arus/Beban');
+var dataRef9 = database.ref('Daya/Beban');
+var dataRef10 = database.ref('Suhu/Ruangan1');
+var dataRef11 = database.ref('Suhu/Ruangan2');
+var dataRef12 = database.ref('Suhu/Ruangan3');
+var dataRef13 = database.ref('Suhu/Ruangan4');
+var dataRef14 = database.ref('Suhu/Ruangan5');
+var dataRef15 = database.ref('Suhu/Ruangan6');
 
 
-dataRef7.on('value', function(getdata1){
-    var kwh = getdata1.val();
+
+
+
+// dataRef7.on('value', function(getdata1){
+//     var kwh = getdata1.val();
 	
-document.getElementById("kwh").innerHTML= "Rp" + kwh.toFixed(2); 
+// document.getElementById("kwh").innerHTML= "Rp" + kwh.toFixed(2); 
 
-})
+// })
 
 
-dataRef5.on('value', function(getdata1){
-    var energi = getdata1.val().toFixed(2);
+// dataRef5.on('value', function(getdata1){
+//     var energi = getdata1.val().toFixed(2);
 
-document.getElementById("metering").innerHTML= energi + " kWh"; 
+// document.getElementById("metering").innerHTML= energi + " kWh"; 
 
-})
+// })
 
 
 
 dataRef1.on('value', function(getdata1){
-    var teganganvac = getdata1.val().toFixed(2);
-document.getElementById("t").innerHTML= teganganvac +" V"; 
+    var teganganPV = getdata1.val().toFixed(2);
+document.getElementById("pvVoltage").innerHTML= teganganPV +" V"; 
 
 })
 dataRef2.on('value', function(getdata1){
-    var arus = getdata1.val();
-document.getElementById("arus").innerHTML= arus +" A"; 
-
-})
-dataRef6.on('value', function(getdata1){
-    var frekuensi = getdata1.val();
-document.getElementById("frekuensi").innerHTML= frekuensi +" Hz"; 
-
-})
-dataRef4.on('value', function(getdata1){
-    var fdaya = getdata1.val();
-document.getElementById("powerfactor").innerHTML= fdaya +""; 
+    var arusPV = getdata1.val();
+document.getElementById("pvCurrent").innerHTML= arusPV +" A"; 
 
 })
 dataRef3.on('value', function(getdata1){
-    var daya = getdata1.val();
-document.getElementById("daya").innerHTML= daya +"W"; 
+    var dayaPV = getdata1.val();
+document.getElementById("dayaPV").innerHTML= dayaPV +""; 
 
 })
+dataRef4.on('value', function(getdata1){
+    var teganganBaterai = getdata1.val();
+document.getElementById("teganganBaterai").innerHTML= teganganBaterai +"V"; 
+
+})
+
+dataRef5.on('value', function(getdata1){
+    var arusBaterai = getdata1.val();
+document.getElementById("arusBaterai").innerHTML= arusBaterai +" A"; 
+
+})
+dataRef6.on('value', function(getdata1){
+    var dayaBaterai = getdata1.val();
+document.getElementById("dayaBaterai").innerHTML= dayaBaterai +" W"; 
+
+})
+dataRef7.on('value', function(getdata1){
+    var teganganBeban = getdata1.val();
+document.getElementById("teganganBeban").innerHTML= teganganBeban +" V"; 
+
+})
+
+
 
 dataRef8.on('value', function(getdata1){
-    var pvVoltage = getdata1.val();
-document.getElementById("pvVoltage").innerHTML= pvVoltage +" V"; 
+    var arusBeban = getdata1.val();
+document.getElementById("arusBeban").innerHTML= arusBeban +" A"; 
 
 })
+
 dataRef9.on('value', function(getdata1){
-    var batterayVoltage = getdata1.val();
-document.getElementById("batterayVoltage").innerHTML= batterayVoltage +" V"; 
+    var dayaBeban = getdata1.val();
+document.getElementById("dayaBeban").innerHTML= dayaBeban +" W"; 
 
 })
-
-
 dataRef10.on('value', function(getdata1){
-    var pvCurrent = getdata1.val();
-document.getElementById("pvCurrent").innerHTML= pvCurrent +" A"; 
+    var suhuRuangan1 = getdata1.val();
+document.getElementById("ruangan1").innerHTML= suhuRuangan1 +" Celcius"; 
 
 })
 dataRef11.on('value', function(getdata1){
-    var batterayCurrent = getdata1.val();
-document.getElementById("batterayCurrent").innerHTML= batterayCurrent +" A"; 
-
+    var suhuRuangan2 = getdata1.val();
+document.getElementById("ruangan2").innerHTML= suhuRuangan2 +" Celcius"; 
 })
-
 dataRef12.on('value', function(getdata1){
-    var pvPower = getdata1.val();
-document.getElementById("pvPower").innerHTML= pvPower +" W"; 
+    var suhuRuangan3 = getdata1.val();
+document.getElementById("ruangan3").innerHTML= suhuRuangan3 +" Celcius"; 
 
 })
 dataRef13.on('value', function(getdata1){
-    var batterayPower = getdata1.val();
-document.getElementById("batterayPower").innerHTML= batterayPower +" W"; 
+    var suhuRuangan4 = getdata1.val();
+document.getElementById("ruangan4").innerHTML= suhuRuangan4 +" Celcius"; 
 
 })
 dataRef14.on('value', function(getdata1){
-    var pvEnergy = getdata1.val();
-document.getElementById("pvEnergy").innerHTML= pvEnergy +" Wh"; 
+    var suhuRuangan5 = getdata1.val();
+document.getElementById("ruangan5").innerHTML= suhuRuangan5 +" Celcius"; 
 
 })
 dataRef15.on('value', function(getdata1){
-    var batterayEnergy = getdata1.val();
-document.getElementById("batterayEnergy").innerHTML= batterayEnergy +" Wh"; 
+    var suhuRuangan6 = getdata1.val();
+document.getElementById("ruangan6").innerHTML= suhuRuangan6 +" Celcius"; 
 
 })
+// dataRef13.on('value', function(getdata1){
+//     var batterayPower = getdata1.val();
+// document.getElementById("batterayPower").innerHTML= batterayPower +" W"; 
+
+// })
+// dataRef14.on('value', function(getdata1){
+//     var pvEnergy = getdata1.val();
+// document.getElementById("pvEnergy").innerHTML= pvEnergy +" Wh"; 
+
+// })
+// dataRef15.on('value', function(getdata1){
+//     var batterayEnergy = getdata1.val();
+// document.getElementById("batterayEnergy").innerHTML= batterayEnergy +" Wh"; 
+
+// })
 
 // const child = document.getElementById("#teg")
 
